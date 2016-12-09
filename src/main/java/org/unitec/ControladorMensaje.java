@@ -74,4 +74,15 @@ return "Mensaje Borrado con exito";
     
     
 }
+    
+      //ENVIAR
+    @CrossOrigin
+    @RequestMapping(value="/mensaje/{Nombre}/{Descripcion}", method=RequestMethod.POST,headers={"Accept=text/html"})
+    
+    public String enviar(@PathVariable Long id, @PathVariable String titulo, @PathVariable String cuerpo){
+
+        Mensaje mensa=new Mensaje(id,titulo, cuerpo);
+            repoMensa.save(mensa);
+return "Mensaje Enviado con exito";
+    }
 }
